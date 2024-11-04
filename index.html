@@ -1,0 +1,129 @@
+<html>
+  <head>
+    <title>snsns</title>
+    <meta name="theme-color" content="#ffb499">
+    <link rel="icon" href="/static/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/touch-icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+.body{
+  margin:0 29%;
+  background:#FFe;
+  height:100vh;
+}
+printt{
+  display:none;
+}
+@media (max-width: 600px) {
+.body{
+  margin:0 0;
+}
+}
+@media print{
+  .body{
+     display:none;
+  }
+  .pla{
+     display:block;
+   }
+}
+@media (prefers-color-scheme: light) {
+.body{
+  background:#FFe;
+}
+body{
+  height:100%;
+  margin:-0.5vh 0 -0.5vh;
+}
+h1{
+  font-size:300%;
+  width:100%;
+  background:#88888888;
+}
+.body>h1{
+  transform: translate(0px,-8.5vh);
+}
+.body>p{
+    transform: translate(10%,-10.5vh);
+}
+.body>div{
+  border:solid 0.5vh #888888;
+  margin:5vh;
+  padding:2%;
+  transform: translate(0,-15vh);
+  border-radius:4vh;
+}
+.body>div>p{
+  margin:0;
+  overflow-wrap:break-word;
+}
+a.url{
+  color:#888;
+  text-decoration:none;
+}
+a.url:hover{
+  color:#88e;
+}
+}
+@media (prefers-color-scheme: dark) {
+.body{
+  background:#414141;
+}
+*{
+  color:white;
+}
+body{
+  height:100%;
+  margin:-0.5vh 0 -0.5vh;
+  baclground:#000;
+}
+h1{
+  font-size:300%;
+  width:100%;
+  background:#555;
+}
+.body>h1{
+  transform: translate(0px,-8.5vh);
+}
+.body>p{
+    transform: translate(10%,-10.5vh);
+}
+.body>div{
+  border:solid 0.5vh #999;
+  margin:5vh;
+  padding:2%;
+  transform: translate(0,-15vh);
+  border-radius:4vh;
+}
+.body>div>p{
+  margin:0;
+  overflow-wrap:break-word;
+}
+a.url{
+  color:#888;
+  text-decoration:none;
+}
+a.url:hover{
+  color:#88e;
+}
+}
+    </style>
+  </head>
+  <body>
+    <printt class="pla">印刷する意味はないですよねぇ。</printt>
+    <div class="body">
+      <br>
+      <h1>snsns(仮)</h1>
+      <p>皆のコミュニティー</p>
+      {% for i in data %}
+      <div>
+        <p style="font-size:175%">{{i[2]}}</p>
+        <p>{{i[1]}}</p>
+        <div>
+          <span style="font-size:75%;color:#888;">{{i[4]}}</span>
+          <a style="font-size:75%;" class="url" href="/talk/{{i[0]}}">hello</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
